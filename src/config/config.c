@@ -30,3 +30,14 @@ char* config_get_asset_path(char* filename) {
     cwk_path_join_multiple(paths, buf, sizeof(buf));
     return strdup(buf);;
 }
+
+char* config_get_map_path(char* filename) {
+    char buf[FILENAME_MAX];
+    const char *paths[4];
+    paths[0] = config.game_path;
+    paths[1] = "maps";
+    paths[2] = filename;
+    paths[3] = NULL;
+    cwk_path_join_multiple(paths, buf, sizeof(buf));
+    return strdup(buf);;
+}

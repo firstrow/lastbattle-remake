@@ -14,7 +14,7 @@ typedef struct {
     animation_id_t animation_id;
 } fog_cell;
 
-void game_fog_update();
+void game_fog_update(int player_id);
 void game_fog_draw();
 void game_fog_toggle();
 bool game_fog_can_see(vec2 where);

@@ -54,7 +54,7 @@ int main (int argc, char *argv[]) {
     animation_load_all();
     ui_init();
     handle_init();
-    map_load_csv("/home/andrew/krita_sources/islands.csv");
+    map_load_csv(config_get_map_path("islands.csv"));
     game_init();
     game_log_init();
 
@@ -86,7 +86,7 @@ int main (int argc, char *argv[]) {
 
     /* figure_create_city((vec2){.x=13, .y=6})->player_id = PLAYER_TWO; */
 
-    game_fog_toggle();
+    /* game_fog_toggle(); */
 
     SDL_Event event;
     while(quit == 0) {
@@ -107,10 +107,10 @@ int main (int argc, char *argv[]) {
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym) {
                     case SDLK_F12:
-                        /* game_level_gen(); */
+                        game_level_gen();
                         break;
                     case SDLK_F11:
-                        /* game_fog_toggle(); */
+                        game_fog_toggle();
                         break;
                     case SDLK_F2:
                         save_state(save_file);

@@ -1,5 +1,6 @@
 #include "ui.h"
 #include "animation/animation.h"
+#include "config/config.h"
 #include "game/game.h"
 #include "screen/screen.h"
 
@@ -17,7 +18,7 @@ SDL_Color UI_COLOR_BLUE_LIGHT = {0, 255, 255};
 void ui_init() {
   TTF_Init();
 
-  font = TTF_OpenFont("/home/andrew/code/c/thegame/assets/cnc_inet.ttf", 24);
+  font = TTF_OpenFont(config_get_asset_path("cnc_inet.ttf"), 24);
   if (font == NULL) {
     SDL_LogError(0, "failed to load font");
     abort();

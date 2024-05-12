@@ -1,13 +1,13 @@
-#include <SDL2/SDL_log.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
 #include <stddef.h>
+#include "array_list.h"
 
+#include <SDL2/SDL_log.h>
 #include <SDL2/SDL.h>
 
-#include "array_list.h"
 
 array_list *array_list_create(size_t item_size, size_t initial_capacity) {
     array_list *list = malloc(sizeof(array_list));
