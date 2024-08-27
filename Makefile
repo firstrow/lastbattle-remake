@@ -32,4 +32,4 @@ build:
 		-Wall
 
 run: build
-	@./thegame /home/andrew/lastballe-saves/default.sav
+	@./thegame ~/lastbattle-default.sav
