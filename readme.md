@@ -13,7 +13,14 @@ F12 - generage new world
 F11 - toggle fog of war
 F2 - save game
 
-For anything else - read source code.
+x - action on selected object/menu item.
+z - menu back / cancel action
+Return - end turn
+arrow keys
+
+For all keybindigs see keyboard.c
+
+
 ```
 
 ## Links
