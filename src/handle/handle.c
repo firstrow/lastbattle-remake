@@ -13,6 +13,8 @@
 #include "types/types.h"
 #include "figure/figure.h"
 #include "figure/movement.h"
+#include "config/config.h"
+#include "save/save.h"
 
 #include <SDL2/SDL.h>
 
@@ -33,6 +35,9 @@ static void default_handler() {
 
     if (input_key(KEY_SELECT_NEXT))
         game_select_next_unit((SDL_GetModState() & KMOD_SHIFT) > 0, 0);
+
+    if (input_key(KEY_SELECT_NEXT_UNIT_WITH_APS))
+        game_select_next_unit_with_aps();
 
     if (input_key_hold(KEY_UP))
         screen_camera_up();
@@ -68,6 +73,7 @@ static void default_handler() {
         if (end_turn_pressed >= 2) {
             end_turn_pressed = 0;
             game_inter_screen_show();
+			save_state(config_get_save_path());
         }
     }
 }
@@ -90,3 +96,5 @@ void handle_pop_callback() {
     state.input_callbacks[state.pos] = NULL;
     state.pos--;
 }
+
+

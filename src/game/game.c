@@ -137,7 +137,7 @@ void game_select_next_unit(bool goback, int stored_in_id) {
     }
 
     figure *f;
-    while(steps<=MAX_FIGURES) {
+    while(steps <= MAX_FIGURES) {
         steps++;
 
         if (goback) {
@@ -168,6 +168,37 @@ void game_select_next_unit(bool goback, int stored_in_id) {
             game_player_get()->cursor = f->pos;
             return game_set_state_selected_figure(f);
         }
+    }
+}
+
+void game_select_next_unit_with_aps() {
+    int i = 0;
+    int steps = 0;
+
+    figure *sf = game_selected_figure();
+    if (sf != NULL && sf->type) {
+        i = sf->id;
+    }
+
+    figure *f;
+    while(steps <= MAX_FIGURES) {
+        i++;
+        steps++;
+
+        f = figure_get(i);
+        if (!f->type)
+            continue;
+        if (f->type == FIGURE_CITY )
+            continue;
+        if (f->action_points == 0)
+            continue;
+        if (f->player_id != game_state_get()->current_player) {
+            continue;
+        }
+
+        screen_move_to(f->pos);
+        game_player_get()->cursor = f->pos;
+        return game_set_state_selected_figure(f);
     }
 }
 

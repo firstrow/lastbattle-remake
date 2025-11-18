@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 
-#define N 13
+#define N 14
 
 static int sdl_codes[N];
 static int state[N] = {0};
@@ -18,6 +18,7 @@ void input_keyboard_init() {
     sdl_codes[KEY_LEAVE_WINDOW] = SDL_GetScancodeFromName("l");
     sdl_codes[KEY_PACK_UNPACK] = SDL_GetScancodeFromName("p");
     sdl_codes[KEY_SELECT_NEXT] = SDL_GetScancodeFromName("Tab");
+    sdl_codes[KEY_SELECT_NEXT_UNIT_WITH_APS] = SDL_GetScancodeFromName("j");
     sdl_codes[KEY_END_TURN] = SDL_GetScancodeFromName("Return");
     sdl_codes[KEY_CANCEL] = SDL_GetScancodeFromName("z");
     sdl_codes[KEY_ACTION] = SDL_GetScancodeFromName("x");
@@ -50,6 +51,7 @@ void input_keyboard_update() {
     const Uint8 *sdl_kstate = SDL_GetKeyboardState(NULL);
 
     update_key_state(sdl_kstate, KEY_SELECT_NEXT);
+    update_key_state(sdl_kstate, KEY_SELECT_NEXT_UNIT_WITH_APS);
     update_key_state(sdl_kstate, KEY_CANCEL);
     update_key_state(sdl_kstate, KEY_LEFT);
     update_key_state(sdl_kstate, KEY_RIGHT);

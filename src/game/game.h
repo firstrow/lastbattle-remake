@@ -28,6 +28,7 @@ void game_set_player(int p);
 void game_set_state_selected_figure(figure *f);
 void game_tile_selected(vec2 tile);
 void game_select_next_unit(bool goback, int stored_in_id);
+void game_select_next_unit_with_aps();
 game_state *game_state_get();
 game_player *game_player_get();
 figure *game_selected_figure();

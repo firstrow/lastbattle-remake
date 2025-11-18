@@ -64,6 +64,7 @@ int main (int argc, char *argv[]) {
     }
 
     strcpy(save_file, argv[1]);
+    config_set_save_path(save_file);
     SDL_LogInfo(0, "save file: %s", save_file);
 
     int quit = 0;
@@ -107,10 +108,10 @@ int main (int argc, char *argv[]) {
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym) {
                     case SDLK_F12:
-                        /* game_level_gen(); */
+                        // game_level_gen();
                         break;
                     case SDLK_F11:
-                        /* game_fog_toggle(); */
+                        // game_fog_toggle();
                         break;
                     case SDLK_F2:
                         save_state(save_file);
@@ -137,3 +138,4 @@ int main (int argc, char *argv[]) {
 
     return 0;
 }
+

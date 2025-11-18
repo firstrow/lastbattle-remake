@@ -269,9 +269,14 @@ static void menu_explode_selected() {
 
     for (int i = 1; i < MAX_FIGURES; i++) {
         figure *unit = figure_get(i);
-        if (unit->pos.x == x && unit->pos.y == y)
+        if (unit->pos.x == x && unit->pos.y == y) {
             figure_delete(unit);
+        }
     }
+
+    char buf[50];
+    sprintf(buf, "city exploded. x: %d, y: %d", x, y);
+    game_log(buf, menu_selected_figure->pos);
 
     game_set_state_selected_figure(NULL);
     menu_hide();

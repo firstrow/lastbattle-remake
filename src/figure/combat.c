@@ -157,9 +157,9 @@ void figure_combat_update() {
         // log msg
         if (defender->player_id > 0 && attacker->player_id > 0) {
             if (defender->player_id != game_player_get()->id)
-                sprintf(buf, "LOST: %s killed by %s", defender->name, attacker->name);
+                sprintf(buf, "LOST: %s killed by %s. Shield: %d", defender->name, attacker->name, attacker->shield);
             else
-                sprintf(buf, "WON: %s killed by %s", defender->name, attacker->name);
+                sprintf(buf, "WON: %s killed by %s. Shield: %d", defender->name, attacker->name, attacker->shield);
             game_log(buf, defender->pos);
         }
 

@@ -10,19 +10,20 @@ typedef enum {
 } k_state;
 
 typedef enum {
-    KEY_CANCEL,
-    KEY_LEFT,
-    KEY_RIGHT,
-    KEY_UP,
-    KEY_DOWN,
-    KEY_LEAVE_WINDOW,
-    KEY_PACK_UNPACK,
-    KEY_SELECT_NEXT,
-    KEY_END_TURN,
-    KEY_ACTION,
-    KEY_SCALE_INC,
-    KEY_SCALE_DEC,
-    KEY_SHOW_LOG,
+  KEY_CANCEL,
+  KEY_LEFT,
+  KEY_RIGHT,
+  KEY_UP,
+  KEY_DOWN,
+  KEY_LEAVE_WINDOW,
+  KEY_PACK_UNPACK,
+  KEY_SELECT_NEXT,
+  KEY_SELECT_NEXT_UNIT_WITH_APS,
+  KEY_END_TURN,
+  KEY_ACTION,
+  KEY_SCALE_INC,
+  KEY_SCALE_DEC,
+  KEY_SHOW_LOG,
 } INPUT_KEY;
 
 void input_keyboard_init();

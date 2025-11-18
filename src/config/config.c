@@ -10,10 +10,19 @@
 static struct {
     char* game_path;
     char* assets_path;
+    char* save_path;
 } config;
 
 void config_set_game_path(char* p) {
     config.game_path = p;
+}
+
+void config_set_save_path(char* p) {
+    config.save_path = p;
+}
+
+char* config_get_save_path() {
+    return config.save_path;
 }
 
 char* config_get_game_path() {
@@ -30,3 +39,4 @@ char* config_get_asset_path(char* filename) {
     cwk_path_join_multiple(paths, buf, sizeof(buf));
     return strdup(buf);;
 }
+
