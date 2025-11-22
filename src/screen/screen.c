@@ -126,7 +126,7 @@ void screen_camera_left() {
     vec2 c = game_player_get()->cursor;
     if (c.x > 0) {
         c.x--;
-        game_player_get(c)->cursor = c;
+        game_player_get()->cursor = c;
         int cam_offset = camera_x / tile_width;
         if (c.x <= abs(cam_offset) && c.x > 0)
             camera_x += tile_width;
@@ -137,7 +137,7 @@ void screen_camera_right() {
     vec2 c = game_player_get()->cursor;
     if (c.x < MAP_WIDTH - 1) {
         c.x++;
-        game_player_get(c)->cursor = c;
+        game_player_get()->cursor = c;
         int tiles_horizontally = WINDOW_WIDTH / tile_width;
         int cam_offset = camera_x / tile_width;
         if (c.x >= abs(cam_offset) + tiles_horizontally-1 && c.x < MAP_WIDTH - 1)

@@ -10,7 +10,6 @@
 
 #include "animation/animation.h"
 #include "config/config.h"
-#include "figure/figure.h"
 #include "game/fog.h"
 #include "game/game.h"
 #include "game/level.h"
@@ -19,7 +18,6 @@
 #include "input/mouse.h"
 #include "screen/screen.h"
 #include "time/time.h"
-#include "types/types.h"
 #include "handle/handle.h"
 #include "map/loader.h"
 #include "ui/notify.h"
@@ -54,7 +52,8 @@ int main (int argc, char *argv[]) {
     animation_load_all();
     ui_init();
     handle_init();
-    map_load_csv(config_get_map_path("islands.csv"));
+    // map_load_csv(config_get_map_path("islands.csv"));
+    map_load_csv("/tmp/map.csv");
     game_init();
     game_log_init();
 
@@ -106,10 +105,10 @@ int main (int argc, char *argv[]) {
                 break;
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym) {
-                    case SDLK_F12:
+                    case SDLK_F11:
                         game_level_gen();
                         break;
-                    case SDLK_F11:
+                    case SDLK_F10:
                         game_fog_toggle();
                         break;
                     case SDLK_F2:
